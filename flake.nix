@@ -2,7 +2,7 @@
   description = "A simple script";
 
   outputs = { self, nixpkgs }: {
-    defaultPackage.x86_64-linux = self.packages.x86_64-linux.hello-world;
+    defaultPackage.aarch64-linux = self.packages.aarch64-linux.hello-world;
 
     packages.x86_64-linux.hello-world =
       let
