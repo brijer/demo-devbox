@@ -1,16 +1,16 @@
-with import <nixpkgs> {};
+{
+  description = "A simple script";
 
-derivation {
-  name = "hello-world";
-  builder = "${bash}/bin/bash";
-  version = "1.0";
-  system = builtins.currentSystem;
-  src = /Users/j.brisson/Documents/betclicGit/demo/demo-devbox/hello-world.sh;
+  outputs = { self, nixpkgs }: {
+    defaultPackage.x86_64-linux = self.packages.x86_64-linux.my-script;
 
-
-  installPhase = ''
-    mkdir -p $out/bin
-    cp $src $out/bin/hello-world
-    chmod +x $out/bin/hello-world
-  '';
+    packages.x86_64-linux.my-script =
+      let
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+      in
+      pkgs.writeShellScriptBin "hello-world" ''
+        DATE="$(${pkgs.ddate}/bin/ddate +'the %e of %B%, %Y')"
+        ${pkgs.cowsay}/bin/cowsay Hello, world! Today is $DATE.
+      '';
+  };
 }

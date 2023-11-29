@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-echo "Hello World"
+DATE=$(ddate +'the %e of %B%, %Y')
+cowsay Hello, world! Today is $DATE.
