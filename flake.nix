@@ -16,9 +16,9 @@
       '';
 
     # Ajouter ici la définition pour aarch64-darwin
-    packages.aarch64-darwin.hello-world =
+    packages.aarch64-apple-darwin.hello-world =
       let
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        pkgs = nixpkgs.legacyPackages.aarch64-apple-darwin;
       in
       pkgs.writeShellScriptBin "hello-world" ''
         DATE="$(${pkgs.ddate}/bin/ddate +'the %e of %B%, %Y')"
