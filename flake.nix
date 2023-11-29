@@ -2,9 +2,9 @@
   description = "A simple script";
 
   outputs = { self, nixpkgs }: {
-    defaultPackage.x86_64-linux = self.packages.x86_64-linux.my-script;
+    defaultPackage.x86_64-linux = self.packages.x86_64-linux.hello-world;
 
-    packages.x86_64-linux.my-script =
+    packages.x86_64-linux.hello-world =
       let
         pkgs = import nixpkgs { system = "x86_64-linux"; };
       in
