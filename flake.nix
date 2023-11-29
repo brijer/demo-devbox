@@ -3,7 +3,7 @@
 
   outputs = { self, nixpkgs }: {
     # Définition du package pour aarch64-linux
-    defaultPackage.aarch64-linux = self.packages.aarch64-linux.hello-world;
+    defaultPackage.aarch64-apple-darwin = self.packages.aarch64-apple-darwin.hello-world;
 
     # Définition du package pour x86_64-linux
     packages.x86_64-linux.hello-world =
